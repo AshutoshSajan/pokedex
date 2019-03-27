@@ -28,7 +28,10 @@ export default class Board extends React.Component {
 		// console.log(this.state.data)
 		return (
 			<div className="board">
-				<input className="mainInput" onChange={this.handleSearch}/>
+				<header className="header">
+					<h1>search any pokymon charector</h1>
+					<input className="mainInput" onChange={this.handleSearch}/>
+				</header>
 				{
 					this.state.loading ? 
 					<div className="cards" >

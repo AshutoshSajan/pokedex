@@ -5,10 +5,27 @@ body {
 .board {
 	margin-top: 20px;
 }
+.header {
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 20;
+	background: #f3f3f3;
+}
+
+.header h1 {
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	font-style: italic;
+	margin-bottom: 20px;
+	text-transform: capitalize;
+}
 
 .mainInput {
 	display: block;
-	margin: 0 auto;
+	margin: 10px auto;
 	font-size: 20px;
 	border-radius: 4px;
 	border: 1px solid darkred;
@@ -17,6 +34,7 @@ body {
 }
 
 .cards {
+	margin-top: 100px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -32,7 +50,10 @@ body {
 	background: #111;
 }
 
-figcaption {
+.img-box figcaption {
 	text-align: center;
-	background: gray;
+	background: #58D68D;
+	color: #111;
+	font-size: 20px;
+	padding: 4px 0;
 }
