@@ -1,3 +1,7 @@
+body {
+  background: #f3f3f3;
+}
+
 .board {
 	margin-top: 20px;
 }
@@ -15,17 +19,20 @@
 .cards {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
-img {
+.img {
 	height: 200px;
 	width: 200px;
 }
 
-figure {
+.img-box {
 	margin: 10px;
+	background: #111;
 }
 
 figcaption {
 	text-align: center;
+	background: gray;
 }
