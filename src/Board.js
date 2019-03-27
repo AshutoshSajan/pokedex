@@ -10,7 +10,13 @@ export default class Board extends React.Component {
 	}
 
 	componentDidMount(){
-		fetch("https://pokeapi.co/api/v2/pokemon/?limit=784").then(res => res.json()).then(({results}) => this.setState({data: results, loading: true}))
+		var pokemons;
+		fetch("https://pokeapi.co/api/v2/pokemon/?limit=784").then(res => res.json()).then(({results}) => {
+			pokemons = results.map((v, i) => { 
+				return ({name: v.name, img:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i + 1}.png`})
+			})
+			this.setState({data: pokemons, loading: true})
+		})
 	}
 
 	handleSearch = (e) => {
@@ -19,23 +25,23 @@ export default class Board extends React.Component {
 	}
 
 	render = () => {
-		console.log(this.state.filtered, this.state.input)
+		// console.log(this.state.data)
 		return (
 			<div className="board">
 				<input className="mainInput" onChange={this.handleSearch}/>
 				{
 					this.state.loading ? 
-					<div className="cards">
+					<div className="cards" >
 						{	
 							this.state.filtered ?
 								this.state.filtered.map((pokemon, i) => 
-								<figure className="img-box" data-key={pokemon.name}> 
-								 	<img className="img" data-key={pokemon.name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i + 1}.png`} alt={pokemon.name}/>
+								<figure className="img-box" key={pokemon.name}> 
+								 	<img className="img" key={pokemon.name} src={pokemon.img} alt={pokemon.name}/>
 								 	<figcaption>{pokemon.name}</figcaption>
 							 	</figure> ) :
 							this.state.data.map((pokemon, i) =>
-								<figure className="img-box" data-key={pokemon.name}> 
-								 	<img className="img" data-key={pokemon.name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i + 1}.png`} alt={pokemon.name}/>
+								<figure className="img-box" key={pokemon.name}> 
+								 	<img className="img" key={pokemon.name} src={pokemon.img} alt={pokemon.name}/>
 								 	<figcaption>{pokemon.name}</figcaption>
 							 	</figure>
 							)
