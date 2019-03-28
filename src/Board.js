@@ -30,7 +30,7 @@ export default class Board extends React.Component {
 			<div className="board">
 				<header className="header">
 					<h1>search any pokymon charector</h1>
-					<input className="mainInput" onChange={this.handleSearch}/>
+					<input className="mainInput" onChange={this.handleSearch} placeholder="Enter pokymon name"/>
 				</header>
 				{
 					this.state.loading ? 
